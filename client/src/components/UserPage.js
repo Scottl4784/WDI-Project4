@@ -22,8 +22,8 @@ class UserPage extends Component {
         return (
             <div>
                 {this.state.user.name}
-                <BeerSearch {...this.props}/>
-                <Beers/>
+                <BeerSearch {...this.props} />
+                <Beers {...this.props} />
             </div>
         );
     }

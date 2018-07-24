@@ -13,10 +13,9 @@ class BeerSearch extends Component {
             search: userInput
         })
     }
-    handleSubmit = (i) => {
+    handleSubmit = (beerId) => {
         const userId = this.props.match.params.userId
-        axios.post(`/api/users/${userId}`, this.state.searchResults[i]).then((res) => {
-            this.props.newDrink(res.data)
+        axios.post(`/api/users/${userId}/drinks/${beerId}`).then(() => {
             this.resetState()
         })
             .catch((err) => {
@@ -48,7 +47,7 @@ class BeerSearch extends Component {
             return (
                 <div key={i}>
                     <h3>{result.name}</h3>
-                    <img onClick={() => this.handleSubmit(i)} src={result.image_url} width={100} height={200} alt=""/>
+                    <img onClick={() => this.handleSubmit(result.id)} src={result.image_url} width={100} height={200} alt=""/>
                     <p>{result.tagline}</p>
                 </div>
             )
