@@ -1,3 +1,3 @@
 class User < ApplicationRecord
-    has_many :beers, dependent: :destroy
+    has_many :drinks, dependent: :destroy
 end
