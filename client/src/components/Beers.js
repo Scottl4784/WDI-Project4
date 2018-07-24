@@ -4,7 +4,7 @@ class Beers extends Component {
     render() {
         return (
             <div>
-                
+            
             </div>
         );
     }
