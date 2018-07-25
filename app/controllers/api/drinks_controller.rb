@@ -11,9 +11,16 @@ class Api::DrinksController < ApplicationController
     end
 
     def show
-        @drinks = User.find(params[:user_id]).drinks.find(params[:id]) 
-        render json: @drinks
+        @drink = User.find(params[:user_id]).drinks.find(params[:id]) 
+        render json: @drink
     end
+
+    def destroy
+        @drink = Drink.find(params[:id]).delete
+        render json: @drink
+    end
+
+
 
 
     private
