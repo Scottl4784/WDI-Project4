@@ -15,7 +15,7 @@ class BeerSearch extends Component {
     }
     handleSubmit = (beerId) => {
         const userId = this.props.match.params.userId
-        axios.post(`/api/users/${userId}/drinks/${beerId}`).then(() => {
+        axios.post(`/api/users/${userId}/drinks/`, {beer_id: beerId}).then(() => {
             this.resetState()
         })
             .catch((err) => {
