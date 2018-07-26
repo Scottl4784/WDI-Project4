@@ -1,39 +1,60 @@
 import React, { Component } from 'react';
 import axios from 'axios'
-import {Link} from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
+import SignUpLogIn from './SignUpLogIn';
 
 class HomePage extends Component {
     state = {
-        users: []
-    }
-    getUsers() {
-        axios.get('/api/users').then(res => {
-            this.setState({ users: res.data })
-        })
+        signedIn: false
     }
 
-    componentDidMount() {
-        this.getUsers()
+    signUp = async (email, password, password_confirmation) => {
+        try {
+            const payload = {
+                email: email,
+                password: password,
+                password_confirmation: password_confirmation
+            }
+            await axios.post('/auth', payload)
+
+            this.setState({ signedIn: true })
+
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    signIn = async (email, password) => {
+        try {
+            const payload = {
+                email,
+                password
+            }
+            await axios.post('/auth/sign_in', payload)
+
+            this.setState({ signedIn: true })
+
+        } catch (error) {
+            console.log(error)
+        }
     }
 
     render() {
-        const usersList = this.state.users.map((user) => {
-            return (
-                <div key={user.id}>
-                    <img src={user.picture} alt="" />
-                    <Link to={`/${user.id}`}>
-                    <h1>{user.name}</h1>
-                    </Link>
-                </div>
-            )
-        })
+
+        const SignUpLogInComponent = () => (
+            <SignUpLogIn
+                signUp={this.signUp}
+                signIn={this.signIn} />
+        )
 
         return (
             <div>
-                {usersList}
+                {SignUpLogInComponent}
+                {this.state.signedIn ? null : <Redirect to="/signUp" />}
             </div>
-        );
+        )
     }
 }
+
 
 export default HomePage;

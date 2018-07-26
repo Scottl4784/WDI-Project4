@@ -1,11 +1,13 @@
 class Api::DrinksController < ApplicationController
+    before_action :authenticate_user!
+    
     def index
-        @drinks = User.find(params[:user_id]).drinks
+        @drinks = current_user.drinks
         render json: @drinks
     end
     
     def create
-        @user = User.find(params[:user_id])
+        @user = current_user
         @drink = @user.drinks.create!(drink_params)
         render json: @drink
     end

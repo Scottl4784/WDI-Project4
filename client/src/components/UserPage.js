@@ -12,7 +12,7 @@ class UserPage extends Component {
             <div>
                 <MyContext.Consumer>
                     {context => {
-                        if (!context.state.user.length) {
+                        if (context.state.user.length == 0) {
                             context.getUser(userId)
                         }
                         return (
