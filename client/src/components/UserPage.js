@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import BeerSearch from './BeerSearch'
-import Beers from './Beers'
+import UserBeers from './UserBeers'
 import { MyContext } from './MyProvider'
 
 
@@ -27,9 +27,8 @@ class UserPage extends Component {
 
                 </MyContext.Consumer>
 
-                {/* {this.state.user.name}
                 <BeerSearch {...this.props}/>
-                <Beers {...this.props}/> */}
+
             </div>
         );
     }

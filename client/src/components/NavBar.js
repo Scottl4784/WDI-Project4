@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
+import { MyContext } from './MyProvider';
 
 const Container = styled.div`
     height: 5rem;
@@ -24,14 +25,22 @@ const HomeButton = styled.div`
 class Navbar extends Component {
     render() {
         return (
-            <Container>
-                <Logo>
-                <Link to='/'>Beers</Link>
-                </Logo>
-                <HomeButton>
-                <Link to='/'>Home</Link>
-                </HomeButton>
-            </Container>
+            <MyContext.Consumer>
+                {context => {
+    
+                    return (
+                        <Container>
+                            <Logo>
+                                <Link to={`/${context.state.user.id}`}>Beers</Link>
+                            </Logo>
+                            <HomeButton>
+                                <Link to='/'>Home</Link>
+                            </HomeButton>
+                        </Container>
+                    )
+                }
+                }
+            </MyContext.Consumer>
         );
     }
 }

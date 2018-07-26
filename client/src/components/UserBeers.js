@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import EachBeer from './EachBeer';
 
-class Beers extends Component {
+class UserBeers extends Component {
     state = {
         beers: []
     }
@@ -24,8 +24,8 @@ class Beers extends Component {
 
         const beersList = this.state.beers.map((beer) => {
             return (
-                <div>
-                    <EachBeer beerId={beer.beer_id} key={beer.id} />
+                <div key={beer.id}>
+                    <EachBeer beerId={beer.beer_id} />
                 </div>
             )
         })
@@ -38,4 +38,4 @@ class Beers extends Component {
     }
 }
 
-export default Beers;
+export default UserBeers;
