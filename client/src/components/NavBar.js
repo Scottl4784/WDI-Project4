@@ -25,10 +25,9 @@ const HomeButton = styled.div`
 class Navbar extends Component {
     render() {
         return (
-            <MyContext.Consumer>
-                {context => {
+          
     
-                    return (
+                
                         <Container>
                             <Logo>
                                 <Link to='/beers'>Beers</Link>
@@ -37,10 +36,10 @@ class Navbar extends Component {
                                 <Link to='/home'>Home</Link>
                             </HomeButton>
                         </Container>
-                    )
-                }
-                }
-            </MyContext.Consumer>
+                    
+                
+                
+           
         );
     }
 }

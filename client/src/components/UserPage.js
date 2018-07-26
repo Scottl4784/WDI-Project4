@@ -7,10 +7,10 @@ class UserPage extends Component {
  
 
     render() {
-        const userId = this.props.match.params.userId
+        
         return (
             <div>
-                <MyContext.Consumer>
+                {/* <MyContext.Consumer>
                     {context => {
                         if (context.state.user.length === 0) {
                             context.getUser(userId)
@@ -18,13 +18,13 @@ class UserPage extends Component {
                         return (
                             <React.Fragment>
                                 <h1>Hello </h1>
-                                <h1>{context.state.user.name}</h1>
+                                <h1>{context.state.user.email}</h1>
                             </React.Fragment>
                         )
                     }
                 }
 
-                </MyContext.Consumer>
+                </MyContext.Consumer> */}
 
                 <BeerSearch {...this.props}/>
 

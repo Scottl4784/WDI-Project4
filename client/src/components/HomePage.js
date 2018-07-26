@@ -3,6 +3,7 @@ import axios from 'axios'
 import { Redirect } from 'react-router-dom'
 import SignUpLogIn from './SignUpLogIn';
 import {saveAuthTokens, setAxiosDefaults, userIsLoggedIn} from "../util/SessionHeaderUtil"
+import UserPage from './UserPage';
 
 
 class HomePage extends Component {
@@ -51,9 +52,7 @@ class HomePage extends Component {
               email,
               password
           }
-          console.log('about to call')
           const response = await axios.post('/auth/sign_in', payload)
-          console.log('CALLED!')
           saveAuthTokens(response.headers)
           
           console.log('userinfo', response)
@@ -77,7 +76,7 @@ class HomePage extends Component {
         return (
             <div>
                 
-                {this.state.signedIn ? <Redirect to='/home'/> : <div>{SignUpLogInComponent}</div>}
+                {this.state.signedIn ? <UserPage/> : <div>{SignUpLogInComponent}</div>}
             </div>
         )
     }
