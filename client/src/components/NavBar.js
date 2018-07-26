@@ -31,10 +31,10 @@ class Navbar extends Component {
                     return (
                         <Container>
                             <Logo>
-                                <Link to={`/${context.state.user.id}`}>Beers</Link>
+                                <Link to='/beers'>Beers</Link>
                             </Logo>
                             <HomeButton>
-                                <Link to='/'>Home</Link>
+                                <Link to='/home'>Home</Link>
                             </HomeButton>
                         </Container>
                     )
