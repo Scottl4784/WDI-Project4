@@ -12,18 +12,18 @@ class App extends Component {
 
   render() {
     return (
-      <MyProvider>
-        <Router>
-          <div>
+      
+        <div>
+          <MyProvider>
           <NavBar/>
           <Switch>
             <Route exact path='/' component={HomePage} />
             <Route exact path='/:userId' component={UserPage} />
             <Route exact path='/:userId/drinks/:drinkId' component={BeerInfo} />
           </Switch>
-          </div>
-        </Router>
-      </MyProvider>
+          </MyProvider>
+        </div>
+      
     );
   }
 }

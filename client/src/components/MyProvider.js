@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
+import { withRouter } from 'react-router-dom'
 import axios from 'axios'
 
-const MyContext = React.createContext()
+export const MyContext = React.createContext()
 
 class MyProvider extends Component {
 
@@ -9,10 +10,9 @@ class MyProvider extends Component {
         user: []
     }
 
-    getUser () {
-        const userId = this.props.match.params.userId
+    getUser = (userId) => {
         axios.get(`/api/users/${userId}`).then((res) => {
-            this.setState({user: res.data})
+            this.setState({ user: res.data })
         })
     }
 
@@ -20,11 +20,12 @@ class MyProvider extends Component {
         return (
             <MyContext.Provider value={{
                 state: this.state,
+                getUser: this.getUser
             }}>
-            {this.props.children}
+                {this.props.children}
             </MyContext.Provider>
         );
     }
 }
 
-export default MyProvider;
+export default withRouter(MyProvider);

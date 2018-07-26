@@ -1,29 +1,35 @@
 import React, { Component } from 'react'
 import BeerSearch from './BeerSearch'
 import Beers from './Beers'
-import axios from 'axios'
+import { MyContext } from './MyProvider'
+
 
 class UserPage extends Component {
-    state = {
-        user: []
-    }
-
-    getUser () {
-        const userId = this.props.match.params.userId
-        axios.get(`/api/users/${userId}`).then((res) => {
-            this.setState({ user: res.data })
-        })
-    }
-    componentDidMount () {
-        this.getUser()
-    }
+ 
 
     render() {
+        const userId = this.props.match.params.userId
         return (
             <div>
-                {this.state.user.name}
+                <MyContext.Consumer>
+                    {context => {
+                        if (!context.state.user.length) {
+                            context.getUser(userId)
+                        }
+                        return (
+                            <React.Fragment>
+                                <h1>Hello </h1>
+                                <h1>{context.state.user.name}</h1>
+                            </React.Fragment>
+                        )
+                    }
+                }
+
+                </MyContext.Consumer>
+
+                {/* {this.state.user.name}
                 <BeerSearch {...this.props}/>
-                <Beers {...this.props}/>
+                <Beers {...this.props}/> */}
             </div>
         );
     }
