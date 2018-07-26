@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import BeerSearch from './BeerSearch'
-import UserBeers from './UserBeers'
 import { MyContext } from './MyProvider'
 
 
