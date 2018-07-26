@@ -11,9 +11,9 @@ class MyProvider extends Component {
         user: []
     }
 
-    getUser = (userId) => {
+    getUser = () => {
         setAxiosDefaults()
-        axios.get(`/api/users/${userId}`).then((res) => {
+        axios.get(`/api/users`).then((res) => {
             this.setState({ user: res.data })
         })
     }

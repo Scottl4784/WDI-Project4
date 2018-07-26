@@ -9,6 +9,7 @@ class EachBeer extends Component {
 
     getBeer() {
         axios.get(`https://api.punkapi.com/v2/beers/${this.props.beerId}`).then((res) => {
+            console.log(res.data)
             this.setState({ beer: res.data[0] })
         })
     }

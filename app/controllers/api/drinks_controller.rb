@@ -1,5 +1,4 @@
 class Api::DrinksController < ApplicationController
-    before_action :authenticate_user!
     
     def index
         @drinks = current_user.drinks
@@ -8,12 +7,13 @@ class Api::DrinksController < ApplicationController
     
     def create
         @user = current_user
+        puts @user
         @drink = @user.drinks.create!(drink_params)
         render json: @drink
     end
 
     def show
-        @drink = User.find(params[:user_id]).drinks.find(params[:id]) 
+        @drink = current_user.drinks.find(params[:id]) 
         render json: @drink
     end
 

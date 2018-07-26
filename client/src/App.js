@@ -90,11 +90,11 @@ signIn = async (email, password) => {
           <Switch>
             {/* <Route exact path='/' component={HomePage} /> */}
             <Route exaxt path='/signUp' render={SignUpLogInComponent}/>
-            <Route exact path='/:userId' component={UserPage} />
-            <Route exact path='/:userId/beers' component={UserBeers} />
+            <Route exact path='/home' component={UserPage} />
+            <Route exact path='/beers' component={UserBeers} />
             <Route exact path='/:userId/beers/:beerId' component={BeerInfo} />
           </Switch>
-          {this.state.signedIn ? <Redirect to='/home'/> : <Redirect to="/signUp"/>}
+          {/* {this.state.signedIn ? <Redirect to='/home'/> : <Redirect to="/signUp"/>} */}
         </MyProvider>
       </div>
 

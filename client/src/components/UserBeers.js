@@ -1,15 +1,16 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import EachBeer from './EachBeer';
+import { setAxiosDefaults } from '../util/SessionHeaderUtil'
 
 class UserBeers extends Component {
     state = {
         beers: []
     }
 
-    getBeerIds() {
-        const userId = this.props.match.params.userId
-        axios.get(`/api/users/${userId}/drinks`).then((res) => {
+    getBeerIds = () => {
+        setAxiosDefaults()
+        axios.get(`/api/users/user/drinks`).then((res) => {
             console.log(res.data)
             this.setState({ beers: res.data })
         })

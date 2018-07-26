@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import styled from 'styled-components'
+import { setAxiosDefaults } from '../util/SessionHeaderUtil';
 
 const Container = styled.div`
 float: right;
@@ -62,8 +63,8 @@ class BeerSearch extends Component {
         })
     }
     handleSubmit = (beerId) => {
-        const userId = this.props.match.params.userId
-        axios.post(`/api/users/${userId}/drinks/`, {beer_id: beerId}).then(() => {
+        setAxiosDefaults()
+        axios.post(`/api/users/user/drinks`, {beer_id: beerId}).then(() => {
             this.resetState()
         })
             .catch((err) => {
