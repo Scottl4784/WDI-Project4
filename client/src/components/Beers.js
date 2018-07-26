@@ -7,15 +7,15 @@ class Beers extends Component {
         beers: []
     }
 
-    getBeerIds () {
+    getBeerIds() {
         const userId = this.props.match.params.userId
         axios.get(`/api/users/${userId}/drinks`).then((res) => {
             console.log(res.data)
-            this.setState({beers: res.data})
+            this.setState({ beers: res.data })
         })
     }
 
-    componentDidMount () {
+    componentDidMount() {
         this.getBeerIds()
     }
 
@@ -24,14 +24,15 @@ class Beers extends Component {
 
         const beersList = this.state.beers.map((beer) => {
             return (
-    
-                <EachBeer beerId={beer.beer_id} key={beer.id}/>
+                <div>
+                    <EachBeer beerId={beer.beer_id} key={beer.id} />
+                </div>
             )
         })
 
         return (
             <div>
-            {beersList}
+                {beersList}
             </div>
         );
     }
