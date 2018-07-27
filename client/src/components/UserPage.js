@@ -10,21 +10,6 @@ class UserPage extends Component {
 
         return (
             <div>
-                {/* <MyContext.Consumer>
-                    {context => {
-                        if (context.state.user.length === 0) {
-                            context.getUser(userId)
-                        }
-                        return (
-                            <React.Fragment>
-                                <h1>Hello </h1>
-                                <h1>{context.state.user.email}</h1>
-                            </React.Fragment>
-                        )
-                    }
-                }
-
-                </MyContext.Consumer> */}
 
                 <BeerSearch {...this.props}/>
 

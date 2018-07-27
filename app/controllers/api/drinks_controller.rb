@@ -16,6 +16,11 @@ class Api::DrinksController < ApplicationController
         render json: @drink
     end
 
+    def update
+        @drink = Drink.find(params[:id])
+        @drink.update(drink_params)
+    end
+
     def destroy
         @drink = Drink.find(params[:id]).delete
         render json: @drink
@@ -28,6 +33,6 @@ class Api::DrinksController < ApplicationController
 
     def drink_params
 
-        params.require(:drink).permit(:beer_id)
+        params.require(:drink).permit(:beer_id, :favorite)
     end
 end

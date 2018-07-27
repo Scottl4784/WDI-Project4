@@ -25,7 +25,7 @@ class UserBeers extends Component {
         const beersList = this.state.beers.map((beer) => {
             return (
                 <div key={beer.id}>
-                    <EachBeer beerId={beer.beer_id} />
+                    <EachBeer apiBeerId={beer.beer_id} userBeerId={beer.id} />
                 </div>
             )
         })
