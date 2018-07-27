@@ -28,6 +28,7 @@ class Navbar extends Component {
                         <Container>
                             <Logo>
                                 <Link to='/beers'>Beers</Link>
+                                <Link to='/favorites'>Favorites</Link>
                             </Logo>
                             <HomeButton>
                                 <Link to='/'>Home</Link>
