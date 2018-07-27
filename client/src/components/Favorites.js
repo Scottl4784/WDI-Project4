@@ -32,7 +32,7 @@ class Favorites extends Component {
             return (
                 <Card key={favorite.id}>
                     <Card.Content>
-                        <Image floated='right' size='mini' src={favorite.image_url} />
+                        <Image floated='left' size='mini' src={favorite.image_url} />
                         <Card.Header>{favorite.name}</Card.Header>
                         <Card.Description>
                             {favorite.tagline}

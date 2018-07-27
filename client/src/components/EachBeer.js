@@ -29,7 +29,7 @@ class EachBeer extends Component {
 
             <Card>
                 <Card.Content>
-                    <Image floated='right' size='mini' src={this.state.beer.image_url} />
+                    <Image floated='left' size='mini' src={this.state.beer.image_url} />
                     <Card.Header>{this.state.beer.name}</Card.Header>
                     <Card.Description>
                         {this.state.beer.tagline}
