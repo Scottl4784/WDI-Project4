@@ -11,7 +11,6 @@ class UserBeers extends Component {
     getBeerIds = () => {
         setAxiosDefaults()
         axios.get(`/api/users/user/drinks`).then((res) => {
-            console.log(res.data)
             this.setState({ beers: res.data })
         })
     }

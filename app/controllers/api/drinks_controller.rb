@@ -1,5 +1,6 @@
 class Api::DrinksController < ApplicationController
-    
+    before_action :authenticate_user!
+
     def index
         @drinks = current_user.drinks
         render json: @drinks
@@ -7,13 +8,7 @@ class Api::DrinksController < ApplicationController
     
     def create
         @user = current_user
-        @drink = @user.drink.build(drink_params)
-  
-        if @user.save
-          render json: @drink, status: :created, location: @drink
-        else
-          render json: @drink.errors, status: :unprocessable_entity
-        end
+        @drink = @user.drinks.create!(drink_params)
     end
 
     def show
@@ -32,6 +27,7 @@ class Api::DrinksController < ApplicationController
     private
 
     def drink_params
+
         params.require(:drink).permit(:beer_id)
     end
 end

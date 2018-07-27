@@ -64,7 +64,7 @@ class BeerSearch extends Component {
     }
     handleSubmit = (beerId) => {
         setAxiosDefaults()
-        axios.post(`/api/users/user/drinks`, {beer_id: beerId}).then(() => {
+        axios.post('/api/users/user/drinks', {beer_id: beerId}).then(() => {
             this.resetState()
         })
             .catch((err) => {

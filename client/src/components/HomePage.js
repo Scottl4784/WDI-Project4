@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios'
-import { Redirect } from 'react-router-dom'
 import SignUpLogIn from './SignUpLogIn';
 import {saveAuthTokens, setAxiosDefaults, userIsLoggedIn} from "../util/SessionHeaderUtil"
 import UserPage from './UserPage';

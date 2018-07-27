@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 import BeerSearch from './BeerSearch'
-import { MyContext } from './MyProvider'
+
 
 
 class UserPage extends Component {
  
 
     render() {
-        
+
         return (
             <div>
                 {/* <MyContext.Consumer>
