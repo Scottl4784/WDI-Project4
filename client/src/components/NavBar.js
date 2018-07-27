@@ -20,15 +20,14 @@ const Logo = styled.div`
     padding: 2rem 1rem;
     color: #bdaf31cc;
 `
-const HomeButton = styled.div`
+const Account = styled.div`
     padding: 2rem 1rem 0 0;
     color: #bdaf31cc;
 `
 
 class Navbar extends Component {
     state = {
-        signedIn: '',
-        redirect: ''
+        signedIn: ''
     }
 
 
@@ -43,13 +42,13 @@ class Navbar extends Component {
         return (
             <Container>
                 <Logo>
+                    <Link to='/home'>Home</Link>
                     <Link to='/beers'>Beers</Link>
                     <Link to='/favorites'>Favorites</Link>
                 </Logo>
-                <HomeButton>
-                    <Link to='/'>Home</Link>
+                <Account>
                     <button onClick={() => this.signOut()}>Sign Out</button>
-                </HomeButton>
+                </Account>
             </Container>
 
         );

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios'
 import SignUpLogIn from './SignUpLogIn';
 import {saveAuthTokens, setAxiosDefaults, userIsLoggedIn} from "../util/SessionHeaderUtil"
-import UserPage from './UserPage';
+import {Redirect} from 'react-router-dom'
 
 
 class HomePage extends Component {
@@ -75,7 +75,7 @@ class HomePage extends Component {
         return (
             <div>
                 
-                {this.state.signedIn ? <UserPage {...this.props} /> : <div>{SignUpLogInComponent}</div>}
+                {this.state.signedIn ? <Redirect to='/home'/> : <div>{SignUpLogInComponent}</div>}
             </div>
         )
     }

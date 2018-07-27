@@ -5,6 +5,7 @@ import BeerInfo from './components/BeerInfo';
 import NavBar from './components/NavBar';
 import UserBeers from './components/UserBeers';
 import Favorites from './components/Favorites';
+import UserPage from './components/UserPage';
 
 
 
@@ -17,6 +18,7 @@ class App extends Component {
                 <NavBar />
                 <Switch>
                     <Route exact path='/' component={HomePage} />
+                    <Route exact path='/home' component={UserPage} />
                     <Route exact path='/beers' component={UserBeers} />
                     <Route exact path='/favorites' component={Favorites} />
                     <Route exact path='/beers/:beerId' component={BeerInfo} />
