@@ -9,9 +9,8 @@ flex-direction: row;
 `
 const SearchBar = styled.div`
     display: flex;
-    align-items: center;
+    justify-content: center;
     margin: 0 0 25px 0;
-    border-color: black;
     button {
         margin: 5px;
         height: 30px;
@@ -21,18 +20,17 @@ const SearchBar = styled.div`
     }
     input {
         margin: 5px;
-        border-radius: 5px;
-        border: none;
         height: 25px;
         width: 150px;
-        text-align: center;
+        border-radius: 2px;
+        border: 2px solid darkgray;
     }
 `
 const ListOfBeers = styled.div`
     display: flex;
     justify-content: flex-start;
     flex-wrap: wrap;
-    width: 75%;
+    width: 90%;
     img {
         width: 50px;
         height: 100px;
@@ -112,6 +110,7 @@ class BeerSearch extends Component {
                         onChange={this.handleChange}
                         onKeyPress={this.handleKeyPress}
                     />
+                    <button onClick={this.handleSearch}>Search</button>
                 </SearchBar>
                 <Container>
                     <ListOfBeers>
