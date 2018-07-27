@@ -75,7 +75,7 @@ class HomePage extends Component {
         return (
             <div>
                 
-                {this.state.signedIn ? <UserPage/> : <div>{SignUpLogInComponent}</div>}
+                {this.state.signedIn ? <UserPage {...this.props} /> : <div>{SignUpLogInComponent}</div>}
             </div>
         )
     }

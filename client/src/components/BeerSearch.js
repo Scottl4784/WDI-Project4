@@ -4,27 +4,14 @@ import styled from 'styled-components'
 import { setAxiosDefaults } from '../util/SessionHeaderUtil';
 
 const Container = styled.div`
-float: right;
 display: flex;
-flex-direction: column;
-border-style: solid;
-padding: 20px;
-align-items: center;
-height: 400px;
-width: 200px;
-margin: 20px;
-background-color: #000000b8;
-border: none;
-color: white;
-img {
-    width: 100px;
-    height: 150px;
-}
+flex-direction: row;
 `
 const SearchBar = styled.div`
     display: flex;
     align-items: center;
-    margin: 0 0 25px 0
+    margin: 0 0 25px 0;
+    border-color: black;
     button {
         margin: 5px;
         height: 30px;
@@ -41,15 +28,27 @@ const SearchBar = styled.div`
         text-align: center;
     }
 `
-const SearchResults = styled.div`
+const ListOfBeers = styled.div`
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    width: 75%;
+    img {
+        width: 50px;
+        height: 100px;
+    }
+`
+const EachBeer = styled.div`
+    margin: 5%;
+    width: 200px;
     display: flex;
     flex-direction: column;
     button {
-        background: #333f4b;
-        border-style: none;
-    }
-    
+        background-color: #981717;
+        border: none;
+        color: white;
 `
+
 class BeerSearch extends Component {
     state = {
         search: [],
@@ -64,8 +63,9 @@ class BeerSearch extends Component {
     }
     handleSubmit = (beerId) => {
         setAxiosDefaults()
-        axios.post('/api/users/user/drinks', {beer_id: beerId}).then(() => {
-            this.resetState()
+        axios.post('/api/users/user/drinks', { beer_id: beerId }).then(() => {
+            // this.resetState()
+            this.props.history.push('/beers')
         })
             .catch((err) => {
                 console.log(err)
@@ -94,17 +94,17 @@ class BeerSearch extends Component {
     render() {
         const resultsList = this.state.searchResults.map((result, i) => {
             return (
-                <div key={i}>
+                <EachBeer key={i}>
                     <h3>{result.name}</h3>
-                    <img onClick={() => this.handleSubmit(result.id)} src={result.image_url} width={100} height={200} alt=""/>
+                    <img onClick={() => this.handleSubmit(result.id)} src={result.image_url} alt="" />
                     <p>{result.tagline}</p>
-                </div>
+                </EachBeer>
             )
         })
         return (
-            <Container>
+            <div>
                 <SearchBar>
-                <input
+                    <input
                         value={this.state.search}
                         placeholder="Search for a beer"
                         type="text"
@@ -112,11 +112,15 @@ class BeerSearch extends Component {
                         onChange={this.handleChange}
                         onKeyPress={this.handleKeyPress}
                     />
-                    </SearchBar>
-                    <SearchResults>
+                </SearchBar>
+                <Container>
+                    <ListOfBeers>
+
                         {resultsList}
-                    </SearchResults>
-            </Container>
+
+                    </ListOfBeers>
+                </Container>
+            </div>
         );
     }
 }
