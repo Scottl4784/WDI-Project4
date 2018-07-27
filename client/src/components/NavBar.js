@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import {withRouter} from 'react-router'
 import { clearAuthTokens } from "../util/SessionHeaderUtil"
 import axios from 'axios'
+import { Button } from '../../node_modules/semantic-ui-react';
 
 
 const Container = styled.div`
@@ -47,7 +48,7 @@ class Navbar extends Component {
                     <Link to='/favorites'>Favorites</Link>
                 </Logo>
                 <Account>
-                    <button onClick={() => this.signOut()}>Sign Out</button>
+                    <Button negative onClick={() => this.signOut()}>Sign Out</Button>
                 </Account>
             </Container>
 

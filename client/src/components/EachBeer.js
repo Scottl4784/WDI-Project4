@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { setAxiosDefaults } from '../util/SessionHeaderUtil';
+import { Button, Card, Image } from 'semantic-ui-react'
+
 
 class EachBeer extends Component {
 
@@ -16,7 +18,7 @@ class EachBeer extends Component {
 
     addToFavorites = (beerId) => {
         setAxiosDefaults()
-        axios.put(`/api/users/user/drinks/${beerId}`, {favorite: true} )
+        axios.put(`/api/users/user/drinks/${beerId}`, { favorite: true })
     }
 
     componentDidMount() {
@@ -24,11 +26,24 @@ class EachBeer extends Component {
     }
     render() {
         return (
-            <div>
-            <h3>{this.state.beer.name}</h3>
-            <img src={this.state.beer.image_url} width={100} height={175} alt=""/>
-            <button onClick={() => this.addToFavorites(this.props.userBeerId)}>Favorite</button>
-            </div>
+
+            <Card>
+                <Card.Content>
+                    <Image floated='right' size='mini' src={this.state.beer.image_url} />
+                    <Card.Header>{this.state.beer.name}</Card.Header>
+                    <Card.Description>
+                        {this.state.beer.tagline}
+                    </Card.Description>
+                </Card.Content>
+                <Card.Content extra>
+                    <div className='ui two buttons'>
+                        <Button basic color='green'>
+                            Add to Favorites
+          </Button>
+                    </div>
+                </Card.Content>
+            </Card>
+
         );
     }
 }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import { setAxiosDefaults } from '../util/SessionHeaderUtil';
+import { Card, Image } from 'semantic-ui-react'
 
 
 
@@ -29,15 +30,21 @@ class Favorites extends Component {
     render() {
         const favoritesList = this.state.favorites.map((favorite) => {
             return (
-                <div key={favorite.id}>
-                    {favorite.name}
-                </div>
+                <Card key={favorite.id}>
+                    <Card.Content>
+                        <Image floated='right' size='mini' src={favorite.image_url} />
+                        <Card.Header>{favorite.name}</Card.Header>
+                        <Card.Description>
+                            {favorite.tagline}
+                        </Card.Description>
+                    </Card.Content>
+                </Card>
             )
         })
         return (
-            <div>
+            <Card.Group>
                 {favoritesList}
-            </div>
+            </Card.Group>
         );
     }
 }

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react'
 
 class SignUpLogIn extends Component {
 
@@ -39,40 +40,45 @@ class SignUpLogIn extends Component {
 
     render() {
         return (
-            <div>
-                {this.state.toggleSignUp ? 
-                <form>
-                    <div>
-                        <label htmlFor="email">E-mail: </label>
-                        <input onChange={this.handleChange} type="text" name="email" value={this.state.email} />
-                    </div>
-                    <div>
-                        <label htmlFor="password">Password: </label>
-                        <input onChange={this.handleChange} type="password" name="password" value={this.state.password} />
-                    </div>
-                    <div>
-                        <label htmlFor="password_confirmation">Confirm Password: </label>
-                        <input onChange={this.handleChange} type="password" name="password_confirmation"
-                            value={this.state.password_confirmation} />
-                    </div>                    
-                    <button onClick={this.signUp}>Sign Up</button>
-                    <button onClick={this.toggleSignUp}>Cancel</button>
-                </form>
-                :
-                <form>
-                    <div>
-                        <label htmlFor="email">E-mail: </label>
-                        <input onChange={this.handleChange} type="text" name="email" value={this.state.email} />
-                    </div>
-                    <div>
-                        <label htmlFor="password">Password: </label>
-                        <input onChange={this.handleChange} type="password" name="password" value={this.state.password} />
-                    </div>
-                    <button onClick={this.toggleSignUp}>Sign Up</button>
-                    <button onClick={this.signIn}>LogIn</button>
-                </form>
-                }
-            </div>
+                <div className='login-form'>
+            
+                <style>{`
+                  body > div,
+                  body > div > div,
+                  body > div > div > div.login-form {
+                    height: 100%;
+                  }
+                `}</style>
+                <Grid textAlign='center' style={{ height: '100%' }} verticalAlign='middle'>
+                  <Grid.Column style={{ maxWidth: 450 }}>
+                    <Header as='h2' color='teal' textAlign='center'>
+                      <Image src='/logo.png' /> Log-in to your account
+                    </Header>
+                    <Form size='large'>
+                      <Segment stacked>
+                        <Form.Input fluid icon='user' iconPosition='left' placeholder='E-mail address' onChange={this.handleChange} name="email"/>
+                        <Form.Input
+                          fluid
+                          icon='lock'
+                          iconPosition='left'
+                          placeholder='Password'
+                          onChange={this.handleChange}
+                          name="password"
+                          type='password'
+                        />
+            
+                        <Button color='teal' fluid size='large' onClick={this.signIn}>
+                          Login
+                        </Button>
+                      </Segment>
+                    </Form>
+                    <Message>
+                      New to us? <a onClick={this.signUp}>Sign Up</a>
+                    </Message>
+                  </Grid.Column>
+                </Grid>
+
+              </div>                    
         )
     }
 }
