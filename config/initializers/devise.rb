@@ -1,1 +1,3 @@
-config.secret_key = ENV[ '62bb62cd40ec26f5d1ec19bd04fdb803bd7f7f50f31501f6d8f19b4e25cf3c6c38ce5f733e717d5ee4efc1fa1cb23d6cfd55e9d4c58b2045c064bc588c655aeb' ]
+Devise.setup do |config|
+    config.secret_key = '62bb62cd40ec26f5d1ec19bd04fdb803bd7f7f50f31501f6d8f19b4e25cf3c6c38ce5f733e717d5ee4efc1fa1cb23d6cfd55e9d4c58b2045c064bc588c655aeb'
+end
