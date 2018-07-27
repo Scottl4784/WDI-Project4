@@ -3,6 +3,7 @@ import axios from 'axios'
 import styled from 'styled-components'
 import { setAxiosDefaults } from '../util/SessionHeaderUtil';
 
+
 const Container = styled.div`
 display: flex;
 flex-direction: row;
@@ -91,34 +92,50 @@ class BeerSearch extends Component {
     }
     render() {
         const resultsList = this.state.searchResults.map((result, i) => {
-            return (
-                <EachBeer key={i}>
-                    <h3>{result.name}</h3>
-                    <img onClick={() => this.handleSubmit(result.id)} src={result.image_url} alt="" />
-                    <p>{result.tagline}</p>
-                </EachBeer>
+            return (  
+                <div class="ui link cards" key={result.id}>
+                    <div class="card">
+                        <div class="image">
+                            <img onClick={() => this.handleSubmit(result.id)} src={result.image_url} />
+
+                        </div>
+                        <div class="content">
+                            <div class="header">{result.name}</div>
+                            <div class="meta">
+                                <a>Friends</a>
+                            </div>
+                            <div class="description">
+                            {result.tagline}
+                            </div>
+                        </div>
+                        <div class="extra content">
+                            <span class="right floated">
+                                Joined in 2013
+                            </span>
+                            <span>
+                                <i class="user icon"></i>
+                                75 Friends
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
             )
         })
         return (
             <div>
-                <SearchBar>
-                    <input
-                        value={this.state.search}
-                        placeholder="Search for a beer"
-                        type="text"
-                        name="name"
-                        onChange={this.handleChange}
-                        onKeyPress={this.handleKeyPress}
-                    />
-                    <button onClick={this.handleSearch}>Search</button>
-                </SearchBar>
-                <Container>
-                    <ListOfBeers>
 
-                        {resultsList}
+                <input
+                    value={this.state.search}
+                    placeholder="Search for a beer"
+                    type="text"
+                    name="name"
+                    onChange={this.handleChange}
+                    onKeyPress={this.handleKeyPress}
+                />
+                <button onClick={this.handleSearch}>Search</button>
 
-                    </ListOfBeers>
-                </Container>
+                {resultsList}
             </div>
         );
     }
