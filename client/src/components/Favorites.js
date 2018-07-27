@@ -12,7 +12,6 @@ class Favorites extends Component {
     getUserFavorites() {
         setAxiosDefaults()
         axios.get('/api/users/user/drinks').then((res) => {
-            console.log(res.data)
             res.data.forEach((res) => {
                 if (res.favorite) {
                     axios.get(`https://api.punkapi.com/v2/beers/${res.beer_id}`).then((res) => {

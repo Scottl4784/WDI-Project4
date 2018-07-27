@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import styled from 'styled-components'
+import { clearAuthTokens } from "../util/SessionHeaderUtil"
+import axios from 'axios'
 
 
 const Container = styled.div`
@@ -23,19 +25,32 @@ const HomeButton = styled.div`
 `
 
 class Navbar extends Component {
+    state = {
+        signedIn: '',
+        redirect: ''
+    }
+
+
+    signOut = async () => {
+        await axios.delete('/auth/sign_out')
+        clearAuthTokens()
+        this.setState({ signedIn: false })
+    }
+
     render() {
         return (
-                        <Container>
-                            <Logo>
-                                <Link to='/beers'>Beers</Link>
-                                <Link to='/favorites'>Favorites</Link>
-                            </Logo>
-                            <HomeButton>
-                                <Link to='/'>Home</Link>
-                            </HomeButton>
-                        </Container>
-                    
-                );
+            <Container>
+                <Logo>
+                    <Link to='/beers'>Beers</Link>
+                    <Link to='/favorites'>Favorites</Link>
+                </Logo>
+                <HomeButton>
+                    <Link to='/'>Home</Link>
+                    <Link to='/'><button onClick={() => this.signOut()}>Sign Out</button></Link>
+                </HomeButton>
+            </Container>
+
+        );
     }
 }
 
