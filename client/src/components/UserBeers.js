@@ -3,6 +3,11 @@ import axios from 'axios'
 import EachBeer from './EachBeer';
 import { setAxiosDefaults } from '../util/SessionHeaderUtil'
 import { Card } from 'semantic-ui-react'
+import styled from 'styled-components'
+
+const Container = styled.div`
+    margin: 5em 0 0 0;
+`
 
 
 
@@ -42,11 +47,11 @@ class UserBeers extends Component {
         })
 
         return (
-            <div>
+            <Container>
                 <Card.Group>
                     {beersList}
                 </Card.Group>
-            </div>
+            </Container>
         );
     }
 }

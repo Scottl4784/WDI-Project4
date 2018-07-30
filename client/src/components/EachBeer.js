@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { setAxiosDefaults } from '../util/SessionHeaderUtil';
-import { Button, Card, Image } from 'semantic-ui-react'
+import { Button, Card, Image, Icon } from 'semantic-ui-react'
 
 
 class EachBeer extends Component {
@@ -29,6 +29,9 @@ class EachBeer extends Component {
         return (
 
             <Card>
+                <Card.Content extra>
+                    <Icon name='star' floated='right' size='large' onClick={() => this.addToFavorites(this.props.userBeerId)}/>
+                </Card.Content>
                 <Card.Content>
                     <Image floated='left' size='mini' src={this.state.beer.image_url} />
                     <Card.Header>{this.state.beer.name}</Card.Header>
@@ -38,14 +41,11 @@ class EachBeer extends Component {
                 </Card.Content>
                 <Card.Content extra>
                     <div className='ui two buttons'>
-                        <Button basic color='green'>
-                            Add to Favorites
-                        </Button>
                         <Button basic color='red' onClick={() => this.props.deleteBeer(this.props.userBeerId)}>
                             Remove Beer
                         </Button>
                     </div>
-                </Card.Content>
+                    </Card.Content>
             </Card>
 
         );
