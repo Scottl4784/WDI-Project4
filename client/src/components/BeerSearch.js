@@ -3,6 +3,13 @@ import axios from 'axios'
 import { setAxiosDefaults } from '../util/SessionHeaderUtil';
 import { Button, Card, Image, Input } from 'semantic-ui-react'
 import NavBar from './NavBar'
+import styled from 'styled-components'
+
+const SearchBar = styled.div`
+    .ui.input {
+        width: 25vw;
+    }
+`
 
 
 class BeerSearch extends Component {
@@ -20,9 +27,8 @@ class BeerSearch extends Component {
     handleSubmit = (beerId) => {
         setAxiosDefaults()
         axios.post('/api/users/user/drinks', { beer_id: beerId }).then(() => {
-            // this.resetState()
-            console.log('beer pushed')
-            this.props.history.push('/beers')
+            this.resetState()
+            this.props.history.push('/home')
         })
             .catch((err) => {
                 console.log(err)
@@ -72,6 +78,7 @@ class BeerSearch extends Component {
         return (
             <div>
                 <NavBar/>
+                <SearchBar>
                 <Input
                     value={this.state.search}
                     placeholder="Search for a beer"
@@ -80,6 +87,8 @@ class BeerSearch extends Component {
                     onChange={this.handleChange}
                     onKeyPress={this.handleKeyPress}
                 />
+                <Button primary onClick={this.handleSearch}>Search</Button>
+                </SearchBar>
                 <Card.Group>
                     {resultsList}
                 </Card.Group>

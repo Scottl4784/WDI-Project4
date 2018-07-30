@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import { Card, Image, Item } from 'semantic-ui-react'
+import NavBar from './NavBar';
 
 class BeerInfo extends Component {
     state = {
@@ -18,6 +19,8 @@ class BeerInfo extends Component {
     }
     render() {
         return (
+            <div>
+            <NavBar/>
             <Item>
             <Item.Image size='mini' src={this.state.beer.image_url} />
       
@@ -28,6 +31,7 @@ class BeerInfo extends Component {
               </Item.Description>
             </Item.Content>
           </Item>
+          </div>
         );
     }
 }
