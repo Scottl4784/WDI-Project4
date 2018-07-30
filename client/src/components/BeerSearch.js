@@ -80,8 +80,8 @@ class BeerSearch extends Component {
             <div>
                 <NavBar/>
                 <SearchBar>
-                <Input
-            
+                <Input>
+                    <input 
                     value={this.state.search}
                     placeholder="Search for a beer"
                     type="text"
@@ -90,6 +90,7 @@ class BeerSearch extends Component {
                     onKeyPress={this.handleKeyPress}
                 />
                 <Button primary onClick={this.handleSearch}>Search</Button>
+                </Input>
                 </SearchBar>
                 <Card.Group>
                     {resultsList}

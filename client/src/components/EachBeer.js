@@ -9,6 +9,9 @@ const Container = styled.div`
     .ui.card {
         height: 325px;
     }
+    .ui.card>.extra, .ui.cards>.card>.extra {
+        text-align: right;
+    }
 `
 
 

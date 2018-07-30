@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios'
-import { Item } from 'semantic-ui-react'
 import NavBar from './NavBar';
 import styled from 'styled-components'
 
@@ -40,10 +39,12 @@ class BeerInfo extends Component {
     }
     render() {
 
-        const foodPairing = this.state.beer.food_pairing.map((pairing) => {
+        const foodPairing = this.state.beer.food_pairing.map((pairing, i) => {
             return (
-                <div>
+                <div key={i}>
+                    <p>
                     - {pairing}
+                    </p>
                 </div>
             )
         })
@@ -53,16 +54,12 @@ class BeerInfo extends Component {
                 <Container>
                     <Beer>
                         <h1>{this.state.beer.name}</h1>
-
                         <p>Description: <br />{this.state.beer.description}</p>
-
-
-
                         <p>ABV: {this.state.beer.abv}</p>
                         <br/>
-                        <p>Pairs Well with:
+                        <p>Pairs Well with:</p>
                         {foodPairing}
-                        </p>
+                        
                     </Beer>
                     <Picture>
                         <img src={this.state.beer.image_url} alt="" />
