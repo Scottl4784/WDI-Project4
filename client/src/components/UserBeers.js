@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import EachBeer from './EachBeer';
 import { setAxiosDefaults } from '../util/SessionHeaderUtil'
-import { Card, Icon, Image, Button } from 'semantic-ui-react'
+import { Card } from 'semantic-ui-react'
 import styled from 'styled-components'
 
 const Container = styled.div`
@@ -51,7 +51,7 @@ class UserBeers extends Component {
         const beersList = this.state.beers.map((beer) => {
             return (
                 <Card key={beer.id}>
-                    <EachBeer {...this.props} apiBeerId={beer.beer_id} userBeerId={beer.id} deleteBeer={this.deleteBeer}/>
+                        <EachBeer {...this.props} apiBeerId={beer.beer_id} userBeerId={beer.id} deleteBeer={this.deleteBeer} />
                 </Card>
             )
         })

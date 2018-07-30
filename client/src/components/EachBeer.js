@@ -42,7 +42,7 @@ class EachBeer extends Component {
                         <Icon name='star' floated='right' size='large' onClick={() => this.addToFavorites(this.props.userBeerId)} />
                     </Card.Content>
                     <Card.Content>
-                        <Image floated='left' size='mini' src={this.state.beer.image_url} />
+                        <Image floated='right' size='mini' src={this.state.beer.image_url} />
                         <Card.Header>{this.state.beer.name}</Card.Header>
                         <Card.Description>
                             {this.state.beer.tagline}
@@ -50,11 +50,11 @@ class EachBeer extends Component {
                     </Card.Content>
                     <Card.Content extra>
                         <div className='ui two buttons'>
-                            <Button basic color='red' onClick={() => this.props.deleteBeer(this.props.userBeerId)}>
-                                Remove Beer
-                        </Button>
                             <Button basic color='green' as={Link} to={`/beers/${this.props.userBeerId}`}>
                                More Info
+                        </Button>
+                            <Button basic color='red' onClick={() => this.props.deleteBeer(this.props.userBeerId)}>
+                                Remove Beer
                         </Button>
                         </div>
                     </Card.Content>

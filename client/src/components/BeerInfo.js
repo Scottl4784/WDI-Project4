@@ -1,11 +1,32 @@
 import React, { Component } from 'react';
 import axios from 'axios'
-import { Card, Image, Item } from 'semantic-ui-react'
+import { Item } from 'semantic-ui-react'
 import NavBar from './NavBar';
+import styled from 'styled-components'
+
+
+const Container = styled.div`
+    display: flex;
+`
+const Picture = styled.div`
+    margin: 25px;
+    img {
+        width: 15vw;
+        height: 45vh;
+    }
+`
+const Beer = styled.div`
+    background-color: #000000bf;
+    margin: 50px;
+    padding: 25px;
+    color: white;
+`
 
 class BeerInfo extends Component {
     state = {
-        beer: []
+        beer: {
+            food_pairing: []
+        }
     }
 
     getBeer() {
@@ -18,20 +39,36 @@ class BeerInfo extends Component {
         this.getBeer()
     }
     render() {
+
+        const foodPairing = this.state.beer.food_pairing.map((pairing) => {
+            return (
+                <div>
+                    - {pairing}
+                </div>
+            )
+        })
         return (
             <div>
-            <NavBar/>
-            <Item>
-            <Item.Image size='mini' src={this.state.beer.image_url} />
-      
-            <Item.Content>
-              <Item.Header as='a'>{this.state.beer.name}</Item.Header>
-              <Item.Description>
-                <p>{this.state.beer.description}</p>
-              </Item.Description>
-            </Item.Content>
-          </Item>
-          </div>
+                <NavBar />
+                <Container>
+                    <Beer>
+                        <h1>{this.state.beer.name}</h1>
+
+                        <p>Description: <br />{this.state.beer.description}</p>
+
+
+
+                        <p>ABV: {this.state.beer.abv}</p>
+                        <br/>
+                        <p>Pairs Well with:
+                        {foodPairing}
+                        </p>
+                    </Beer>
+                    <Picture>
+                        <img src={this.state.beer.image_url} alt="" />
+                    </Picture>
+                </Container>
+            </div>
         );
     }
 }

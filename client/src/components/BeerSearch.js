@@ -6,8 +6,9 @@ import NavBar from './NavBar'
 import styled from 'styled-components'
 
 const SearchBar = styled.div`
+    text-align: right;
     .ui.input {
-        width: 25vw;
+        width: 30vw;
     }
 `
 
@@ -80,6 +81,7 @@ class BeerSearch extends Component {
                 <NavBar/>
                 <SearchBar>
                 <Input
+            
                     value={this.state.search}
                     placeholder="Search for a beer"
                     type="text"

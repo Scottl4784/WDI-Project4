@@ -72,8 +72,8 @@ class SignUpLogIn extends Component {
                                 <Form size='large'>
                                     <Segment stacked>
                                         <Form.Input fluid icon='user' iconPosition='left' placeholder='E-mail address' onChange={this.handleChange} name="email" />
-                                        <Form.Input fluidicon='lock' iconPosition='left' placeholder='Password' onChange={this.handleChange} name="password" type='password' />
-                                        <Form.Input fluidicon='lock' iconPosition='left' placeholder='Confirm Password' onChange={this.handleChange} name="password_confirmation" type='password' />
+                                        <Form.Input fluid icon='lock' iconPosition='left' placeholder='Password' onChange={this.handleChange} name="password" type='password' />
+                                        <Form.Input fluid icon='lock' iconPosition='left' placeholder='Confirm Password' onChange={this.handleChange} name="password_confirmation" type='password' />
                                         <div className='ui two buttons'>
                                         <Button color='teal'  onClick={this.signUp}>
                                             Sign Up
