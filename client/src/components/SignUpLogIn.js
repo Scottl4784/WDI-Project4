@@ -1,5 +1,17 @@
 import React, { Component } from 'react'
 import { Button, Form, Grid, Header, Message, Segment } from 'semantic-ui-react'
+import styled from 'styled-components'
+
+const Container = styled.div`
+    margin: 5%;
+    h1 {
+        text-align: center;
+    }
+`
+
+const FormContainer = styled.div`
+    margin: 25%;
+`
 
 class SignUpLogIn extends Component {
 
@@ -40,7 +52,9 @@ class SignUpLogIn extends Component {
 
     render() {
         return (
-            <div>
+            <Container>
+                <h1>Welcome to the Beer Garden</h1>
+                <FormContainer>
                 {this.state.toggleSignUp ?
                     <div className='login-form'>
                         <style>{`
@@ -115,7 +129,8 @@ class SignUpLogIn extends Component {
 
                     </div>
                 }
-            </div>
+                </FormContainer>
+            </Container>
         )
     }
 }
