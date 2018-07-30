@@ -16,6 +16,7 @@ class EachBeer extends Component {
         })
     }
 
+
     addToFavorites = (beerId) => {
         setAxiosDefaults()
         axios.put(`/api/users/user/drinks/${beerId}`, { favorite: true })
@@ -39,7 +40,10 @@ class EachBeer extends Component {
                     <div className='ui two buttons'>
                         <Button basic color='green'>
                             Add to Favorites
-          </Button>
+                        </Button>
+                        <Button basic color='red' onClick={() => this.props.deleteBeer(this.props.userBeerId)}>
+                            Remove Beer
+                        </Button>
                     </div>
                 </Card.Content>
             </Card>

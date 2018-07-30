@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react'
+import { Button, Form, Grid, Header, Message, Segment } from 'semantic-ui-react'
 
 class SignUpLogIn extends Component {
 
@@ -34,51 +34,88 @@ class SignUpLogIn extends Component {
     }
 
     toggleSignUp = () => {
-        const toggleSignUp = !this.state.toggleSignUp  
-        this.setState({toggleSignUp})
+        const toggleSignUp = !this.state.toggleSignUp
+        this.setState({ toggleSignUp })
     }
 
     render() {
         return (
-                <div className='login-form'>
-            
-                <style>{`
-                  body > div,
-                  body > div > div,
-                  body > div > div > div.login-form {
+            <div>
+                {this.state.toggleSignUp ?
+                    <div className='login-form'>
+                        <style>{`
+                    body > div,
+                    body > div > div,
+                    body > div > div > div.login-form {
                     height: 100%;
-                  }
-                `}</style>
-                <Grid textAlign='center' style={{ height: '100%' }} verticalAlign='middle'>
-                  <Grid.Column style={{ maxWidth: 450 }}>
-                    <Header as='h2' color='teal' textAlign='center'>
-                      <Image src='/logo.png' /> Log-in to your account
-                    </Header>
-                    <Form size='large'>
-                      <Segment stacked>
-                        <Form.Input fluid icon='user' iconPosition='left' placeholder='E-mail address' onChange={this.handleChange} name="email"/>
-                        <Form.Input
-                          fluid
-                          icon='lock'
-                          iconPosition='left'
-                          placeholder='Password'
-                          onChange={this.handleChange}
-                          name="password"
-                          type='password'
-                        />
-            
-                        <Button color='teal' fluid size='large' onClick={this.signIn}>
-                          Login
-                        </Button>
-                      </Segment>
-                    </Form>
-                    <Message>
-                      New to us? <a onClick={this.signUp}>Sign Up</a>
-                    </Message>
-                  </Grid.Column>
-                </Grid>
+                    }
+                    `}</style>
+                        <Grid textAlign='center' style={{ height: '100%' }} verticalAlign='middle'>
+                            <Grid.Column style={{ maxWidth: 450 }}>
+                                <Header as='h2' color='teal' textAlign='center'>
+                                    Create a new account
+                            </Header>
+                                <Form size='large'>
+                                    <Segment stacked>
+                                        <Form.Input fluid icon='user' iconPosition='left' placeholder='E-mail address' onChange={this.handleChange} name="email" />
+                                        <Form.Input fluidicon='lock' iconPosition='left' placeholder='Password' onChange={this.handleChange} name="password" type='password' />
+                                        <Form.Input fluidicon='lock' iconPosition='left' placeholder='Confirm Password' onChange={this.handleChange} name="password_confirmation" type='password' />
+                                        <div className='ui two buttons'>
+                                        <Button color='teal'  onClick={this.signUp}>
+                                            Sign Up
+                                        </Button>
+                                        <Button color='red' onClick={this.toggleSignUp}>
+                                            Back
+                                        </Button>
+                                        </div>
+                                    </Segment>
+                                </Form>
+                            </Grid.Column>
+                        </Grid>
 
-              </div>                    
+                    </div>
+                    :
+                    <div className='login-form'>
+
+                        <style>{`
+                        body > div,
+                        body > div > div,
+                        body > div > div > div.login-form {
+                          height: 100%;
+                        }
+                        `}</style>
+                        <Grid textAlign='center' style={{ height: '100%' }} verticalAlign='middle'>
+                            <Grid.Column style={{ maxWidth: 450 }}>
+                                <Header as='h2' color='teal' textAlign='center'>
+                                    Log-in to your account
+                    </Header>
+                                <Form size='large'>
+                                    <Segment stacked>
+                                        <Form.Input fluid icon='user' iconPosition='left' placeholder='E-mail address' onChange={this.handleChange} name="email" />
+                                        <Form.Input
+                                            fluid
+                                            icon='lock'
+                                            iconPosition='left'
+                                            placeholder='Password'
+                                            onChange={this.handleChange}
+                                            name="password"
+                                            type='password'
+                                        />
+
+                                        <Button color='teal' fluid size='large' onClick={this.signIn}>
+                                            Login
+                        </Button>
+                                    </Segment>
+                                </Form>
+                                <Message>
+                                    New to us? <a onClick={this.toggleSignUp}>Sign Up</a>
+                                </Message>
+                            </Grid.Column>
+                        </Grid>
+
+                    </div>
+                }
+            </div>
         )
     }
 }

@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
-import BeerSearch from './BeerSearch'
+import NavBar from './NavBar'
+import UserBeers from './UserBeers';
+
 
 
 
@@ -10,9 +12,8 @@ class UserPage extends Component {
 
         return (
             <div>
-
-                <BeerSearch {...this.props}/>
-
+                <NavBar/>
+                <UserBeers {...this.props}/>
             </div>
         );
     }

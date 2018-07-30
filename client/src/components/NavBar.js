@@ -1,36 +1,20 @@
 import React, { Component } from 'react'
-import { Link, Redirect } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-import {withRouter} from 'react-router'
+import { withRouter } from 'react-router'
 import { clearAuthTokens } from "../util/SessionHeaderUtil"
 import axios from 'axios'
-import { Button } from '../../node_modules/semantic-ui-react';
+import { Menu } from 'semantic-ui-react';
 
 
-const Container = styled.div`
-    height: 5rem;
-    background: #6b6b6b;
-    margin: 25px;
-    display: flex;
-    justify-content: space-between;
-    background-color: black;
-    border-radius: 15px;
-`
-const Logo = styled.div`
-    border-right-style: solid
-    padding: 2rem 1rem;
-    color: #bdaf31cc;
-`
-const Account = styled.div`
-    padding: 2rem 1rem 0 0;
-    color: #bdaf31cc;
-`
+
 
 class Navbar extends Component {
     state = {
         signedIn: ''
     }
 
+    handleItemClick = (e, { name }) => this.setState({ activeItem: name })
 
     signOut = async () => {
         await axios.delete('/auth/sign_out')
@@ -40,18 +24,24 @@ class Navbar extends Component {
     }
 
     render() {
-        return (
-            <Container>
-                <Logo>
-                    <Link to='/home'>Home</Link>
-                    <Link to='/beers'>Beers</Link>
-                    <Link to='/favorites'>Favorites</Link>
-                </Logo>
-                <Account>
-                    <Button negative onClick={() => this.signOut()}>Sign Out</Button>
-                </Account>
-            </Container>
 
+        const { activeItem } = this.state
+
+        return (
+            <Menu>
+                    <Menu.Item name='home' as={Link} to='/home' active={activeItem === 'home'} onClick={this.handleItemClick}>
+                        Home
+                    </Menu.Item>
+                    <Menu.Item name='beers' as={Link} to='/beers' active={activeItem === 'beers'} onClick={this.handleItemClick}>
+                        Find a Beer
+                    </Menu.Item>
+                    < Menu.Item name='favorites' as={Link} to='/favorites' active={activeItem === 'favorites'} onClick={this.handleItemClick}>
+                        Favorites
+                    </Menu.Item>
+                    < Menu.Item name='signout' onClick={this.signOut}>
+                        Sign Out
+                    </Menu.Item>
+            </Menu>
         );
     }
 }

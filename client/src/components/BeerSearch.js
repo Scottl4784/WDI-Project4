@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios'
 import { setAxiosDefaults } from '../util/SessionHeaderUtil';
 import { Button, Card, Image, Input } from 'semantic-ui-react'
+import NavBar from './NavBar'
 
 
 class BeerSearch extends Component {
@@ -50,6 +51,7 @@ class BeerSearch extends Component {
     render() {
         const resultsList = this.state.searchResults.map((result, i) => {
             return (
+                <div>
                 <Card key={result.id}>
                     <Card.Content>
                         <Image floated='right' size='mini' src={result.image_url} />
@@ -66,11 +68,12 @@ class BeerSearch extends Component {
                         </div>
                     </Card.Content>
                 </Card>
-
+                </div>
             )
         })
         return (
             <div>
+                <NavBar/>
                 <Input
                     value={this.state.search}
                     placeholder="Search for a beer"

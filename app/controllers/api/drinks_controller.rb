@@ -23,7 +23,8 @@ class Api::DrinksController < ApplicationController
 
     def destroy
         @drink = Drink.find(params[:id]).delete
-        render json: @drink
+        @drinks = current_user.drinks
+        render json: @drinks
     end
 
 
