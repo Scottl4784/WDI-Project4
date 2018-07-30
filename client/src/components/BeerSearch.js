@@ -7,6 +7,7 @@ import styled from 'styled-components'
 
 const SearchBar = styled.div`
     text-align: right;
+    margin: 3vh 0 3vh 0;
     .ui.input {
         width: 30vw;
     }
@@ -39,7 +40,6 @@ class BeerSearch extends Component {
         axios.get(`https://api.punkapi.com/v2/beers?beer_name=${this.state.search}`)
             .then((res) => {
                 const newSearchResults = [...this.state.searchResults, ...res.data]
-                console.log(res.data)
                 this.setState({ searchResults: newSearchResults })
             })
     }

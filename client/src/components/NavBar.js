@@ -6,7 +6,14 @@ import { clearAuthTokens } from "../util/SessionHeaderUtil"
 import axios from 'axios'
 import { Menu } from 'semantic-ui-react';
 
+const Container = styled.div`
+margin: 3vh 0 0 0;
+    .ui.menu {
+        background: #03a87c;
+        height: 7vh;
+    }
 
+`
 
 
 class Navbar extends Component {
@@ -28,6 +35,7 @@ class Navbar extends Component {
         const { activeItem } = this.state
 
         return (
+            <Container>
             <Menu>
                     <Menu.Item name='home' as={Link} to='/home' active={activeItem === 'home'} onClick={this.handleItemClick}>
                         Home
@@ -38,10 +46,13 @@ class Navbar extends Component {
                     < Menu.Item name='favorites' as={Link} to='/favorites' active={activeItem === 'favorites'} onClick={this.handleItemClick}>
                         Favorites
                     </Menu.Item>
+                    <Menu.Menu position='right'>
                     < Menu.Item name='signout' onClick={this.signOut}>
                         Sign Out
                     </Menu.Item>
+                    </Menu.Menu>
             </Menu>
+            </Container>
         );
     }
 }

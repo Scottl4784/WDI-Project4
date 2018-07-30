@@ -58,6 +58,7 @@ class UserBeers extends Component {
 
         return (
             <Container>
+                <h1>Tried it</h1>
                 <Card.Group>
                     {beersList}
                 </Card.Group>

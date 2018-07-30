@@ -46,6 +46,7 @@ class Favorites extends Component {
         return (
             <div>
             <NavBar/>
+            <h1>Liked it!</h1>
             <Card.Group>
                 {favoritesList}
             </Card.Group>
