@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import { setAxiosDefaults } from '../util/SessionHeaderUtil';
-import { Button, Card, Image } from 'semantic-ui-react'
-
+import { Button, Card, Image, Input } from 'semantic-ui-react'
 
 
 class BeerSearch extends Component {
@@ -72,8 +71,7 @@ class BeerSearch extends Component {
         })
         return (
             <div>
-
-                <input
+                <Input
                     value={this.state.search}
                     placeholder="Search for a beer"
                     type="text"
@@ -81,7 +79,6 @@ class BeerSearch extends Component {
                     onChange={this.handleChange}
                     onKeyPress={this.handleKeyPress}
                 />
-                <button onClick={this.handleSearch}>Search</button>
                 <Card.Group>
                     {resultsList}
                 </Card.Group>

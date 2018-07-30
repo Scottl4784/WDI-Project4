@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import EachBeer from './EachBeer';
 import { setAxiosDefaults } from '../util/SessionHeaderUtil'
-import { Card } from 'semantic-ui-react'
+import { Card, Grid } from 'semantic-ui-react'
 
 
 
@@ -34,9 +34,11 @@ class UserBeers extends Component {
         })
 
         return (
-            <Card.Group>
-                {beersList}
-            </Card.Group>
+            <div>
+                <Card.Group>
+                    {beersList}
+                </Card.Group>
+            </div>
         );
     }
 }
