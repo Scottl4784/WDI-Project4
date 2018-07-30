@@ -2,6 +2,14 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import { setAxiosDefaults } from '../util/SessionHeaderUtil';
 import { Button, Card, Image, Icon } from 'semantic-ui-react'
+import styled from 'styled-components'
+import {Link} from 'react-router-dom'
+
+const Container = styled.div`
+    .ui.card {
+        height: 325px;
+    }
+`
 
 
 class EachBeer extends Component {
@@ -20,6 +28,7 @@ class EachBeer extends Component {
     addToFavorites = (beerId) => {
         setAxiosDefaults()
         axios.put(`/api/users/user/drinks/${beerId}`, { favorite: true })
+        this.props.history.push('/favorites')
     }
 
     componentDidMount() {
@@ -27,27 +36,30 @@ class EachBeer extends Component {
     }
     render() {
         return (
-
-            <Card>
-                <Card.Content extra>
-                    <Icon name='star' floated='right' size='large' onClick={() => this.addToFavorites(this.props.userBeerId)}/>
-                </Card.Content>
-                <Card.Content>
-                    <Image floated='left' size='mini' src={this.state.beer.image_url} />
-                    <Card.Header>{this.state.beer.name}</Card.Header>
-                    <Card.Description>
-                        {this.state.beer.tagline}
-                    </Card.Description>
-                </Card.Content>
-                <Card.Content extra>
-                    <div className='ui two buttons'>
-                        <Button basic color='red' onClick={() => this.props.deleteBeer(this.props.userBeerId)}>
-                            Remove Beer
-                        </Button>
-                    </div>
+            <Container>
+                <Card>
+                    <Card.Content extra>
+                        <Icon name='star' floated='right' size='large' onClick={() => this.addToFavorites(this.props.userBeerId)} />
                     </Card.Content>
-            </Card>
-
+                    <Card.Content>
+                        <Image floated='left' size='mini' src={this.state.beer.image_url} />
+                        <Card.Header>{this.state.beer.name}</Card.Header>
+                        <Card.Description>
+                            {this.state.beer.tagline}
+                        </Card.Description>
+                    </Card.Content>
+                    <Card.Content extra>
+                        <div className='ui two buttons'>
+                            <Button basic color='red' onClick={() => this.props.deleteBeer(this.props.userBeerId)}>
+                                Remove Beer
+                        </Button>
+                            <Button basic color='green' as={Link} to={`/beers/${this.props.userBeerId}`}>
+                               More Info
+                        </Button>
+                        </div>
+                    </Card.Content>
+                </Card>
+            </Container>
         );
     }
 }

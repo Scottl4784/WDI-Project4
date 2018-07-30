@@ -10,7 +10,7 @@ const Container = styled.div`
 `
 
 const FormContainer = styled.div`
-    margin: 25%;
+    margin: 20%;
 `
 
 class SignUpLogIn extends Component {

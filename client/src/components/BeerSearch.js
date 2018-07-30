@@ -51,7 +51,6 @@ class BeerSearch extends Component {
     render() {
         const resultsList = this.state.searchResults.map((result, i) => {
             return (
-                <div>
                 <Card key={result.id}>
                     <Card.Content>
                         <Image floated='right' size='mini' src={result.image_url} />
@@ -68,7 +67,6 @@ class BeerSearch extends Component {
                         </div>
                     </Card.Content>
                 </Card>
-                </div>
             )
         })
         return (
