@@ -10,24 +10,50 @@ class UserSettings extends Component {
         email: '',
         password: '',
         password_confirmation: '',
+        user: {}
     }
 
     getUser() {
         setAxiosDefaults()
         axios.get('/api/users/user').then((res) => {
-            console.log(res.data)
             this.setState({ user: res.data })
+            console.log(this.state.user.email)
         })
     }
-    changeSettings = async (name, email, password, password_confirmation) => {
+
+    changeEmail = async () => {
         try {
             const payload = {
-                name: name,
-                email: email,
-                password: password,
-                password_confirmation: password_confirmation
+                email: this.state.email
             }
+            setAxiosDefaults()
             const response = await axios.put('/auth', payload)
+            saveAuthTokens(response.headers)      
+        }
+         catch (error) {
+            console.log(error)
+        }
+      }
+    changeName = async () => {
+        try {
+            const payload = {
+                name: this.state.name,
+            }
+            setAxiosDefaults()
+            const response = await axios.put('/api/users/user', payload)     
+        }
+         catch (error) {
+            console.log(error)
+        }
+      }
+    changePassword = async () => {
+        try {
+            const payload = {
+                password: this.state.password,
+                password_confirmation: this.state.password_confirmation
+            }
+            setAxiosDefaults()
+            const response = await axios.put('/auth/user_password', payload)
             saveAuthTokens(response.headers)      
         }
          catch (error) {
@@ -39,11 +65,19 @@ class UserSettings extends Component {
         const newState = { ...this.state }
         newState[event.target.name] = event.target.value
         this.setState(newState)
+        console.log(this.state)
     }
 
-    componentDidMount() {
+    componentDidMount () {
         this.getUser()
     }
+
+    changeSettings = () => {
+        this.changeEmail()
+        this.changeName()
+        this.changePassword()
+    }
+
 
     render() {
         return (
@@ -51,14 +85,14 @@ class UserSettings extends Component {
                 <NavBar />
                 <Form>
                     <Form.Group unstackable widths={2}>
-                        <Form.Input label='Name' placeholder='Name' />
-                        <Form.Input label='Email' placeholder='Email' />
+                        <Form.Input label='Name' placeholder='Name' name='name' value={this.state.user.name} onChange={this.handleChange} />
+                        <Form.Input label='Email' placeholder='Email' name='email' value={this.state.user.email} onChange={this.handleChange} />
                     </Form.Group>
                     <Form.Group widths={2}>
-                        <Form.Input label='Password' placeholder='Password' />
-                        <Form.Input label='Confirm Password' placeholder='Confirm Password' />
+                        <Form.Input label='Password' placeholder='Password' name='password' type='password' onChange={this.handleChange} />
+                        <Form.Input label='Confirm Password' placeholder='Confirm Password' name='password_confirmation' type='password' onChange={this.handleChange} />
                     </Form.Group>
-                    <Button type='submit'>Submit</Button>
+                    <Button type='submit' onClick={this.changeSettings}>Submit</Button>
                 </Form>
 
             </div>
