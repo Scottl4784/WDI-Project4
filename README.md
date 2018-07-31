@@ -21,7 +21,5 @@ With so many craft beers out there now, it is hard to keep track of all the ones
         
         
    ## Future Development
-   * Add more interactivty between different users.
-   * Create a more "message board" feel.
    * improve styling and format.
    * Add a settiings page for users.

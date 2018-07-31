@@ -79,6 +79,7 @@ class BeerSearch extends Component {
         return (
             <div>
                 <NavBar/>
+                <h1>Add to your collection</h1>
                 <SearchBar>
                 <Input>
                     <input 
