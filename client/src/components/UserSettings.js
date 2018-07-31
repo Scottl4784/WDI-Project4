@@ -52,7 +52,7 @@ class UserSettings extends Component {
                 password_confirmation: this.state.password_confirmation
             }
             setAxiosDefaults()
-            const response = await axios.put('/auth/user_password', payload)
+            const response = await axios.put('/auth/password', payload)
             saveAuthTokens(response.headers)      
         }
          catch (error) {
@@ -84,8 +84,8 @@ class UserSettings extends Component {
                 <NavBar />
                 <Form>
                     <Form.Group unstackable widths={2}>
-                        <Form.Input label='Name' placeholder='Name' name='name' value={this.state.user.name} onChange={this.handleChange} />
-                        <Form.Input label='Email' placeholder='Email' name='email' value={this.state.user.email} onChange={this.handleChange} />
+                        <Form.Input label='Name'  placeholder={this.state.user.name} name='name' value={this.state.name} onChange={this.handleChange} />
+                        <Form.Input label='Email'  placeholder={this.state.user.email} name='email' value={this.state.email} onChange={this.handleChange} />
                     </Form.Group>
                     <Form.Group widths={2}>
                         <Form.Input label='Password' placeholder='Password' name='password' type='password' onChange={this.handleChange} />

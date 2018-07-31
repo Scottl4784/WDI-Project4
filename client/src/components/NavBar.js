@@ -10,7 +10,6 @@ const Container = styled.div`
 margin: 3vh 0 0 0;
     .ui.menu {
         background: #03a87c;
-        height: 7vh;
     }
 
 `
@@ -36,7 +35,7 @@ class Navbar extends Component {
 
         return (
             <Container>
-            <Menu>
+            <Menu size='huge'>
                     <Menu.Item name='home' as={Link} to='/home' active={activeItem === 'home'} onClick={this.handleItemClick}>
                         Home
                     </Menu.Item>
