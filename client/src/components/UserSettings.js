@@ -17,7 +17,6 @@ class UserSettings extends Component {
         setAxiosDefaults()
         axios.get('/api/users/user').then((res) => {
             this.setState({ user: res.data })
-            console.log(this.state.user.email)
         })
     }
 
