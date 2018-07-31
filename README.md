@@ -1,24 +1,27 @@
-# README
+# WDI16-Project3
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Overview 
 
-Things you may want to cover:
+With so many craft beers out there now, it is hard to keep track of all the ones you have tried! Beer Garden is a site that allows users to create an account and keep up with the beers they have tried and the ones they really enjoyed! My main goals for this project was to incorporate the new technologies we have learned as well as branch out from my comfort zone and use a styling library coupled with CSS to make the site a little more interactive. 
 
-* Ruby version
+   ## Technologies Used
 
-* System dependencies
+  *  Languages - HTML5, Javascript, Ruby
+  *  Backend - Postgres, Rails, React, and Node 
+  *  Styling - Semantic-UI and CSS
+  *  Planning - Trello and Figma
+  *  Hosting - Heroku
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+   ## Project Planning
+   * Wireframe - https://www.figma.com/file/DtsT2rJiJWFbM6CDEqmVg94b/Project-4---Wireframming
+   * ERD - https://www.figma.com/file/ICRLVVa1pXxjl5Ir2FQ4fDRy/Project-4---ERD
+   * Heroku - https://wdi-movie-board.herokuapp.com/5b3a1ecd601e690014a54cba/movies
+   * Trello - https://trello.com/b/fpkTyH8Q/wdi16-project-4
+   * GitHub - https://github.com/Scottl4784/WDI16-Project3
+        
+        
+   ## Future Development
+   * Add more interactivty between different users.
+   * Create a more "message board" feel.
+   * improve styling and format.
+   * Add a settiings page for users.

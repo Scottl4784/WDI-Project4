@@ -47,6 +47,9 @@ class Navbar extends Component {
                         Find a Beer
                     </Menu.Item>
                     <Menu.Menu position='right'>
+                    < Menu.Item name='signout' as={Link} to='/account'>
+                        Account
+                    </Menu.Item>
                     < Menu.Item name='signout' onClick={this.signOut}>
                         Sign Out
                     </Menu.Item>
