@@ -6,10 +6,10 @@ import NavBar from './NavBar'
 import styled from 'styled-components'
 
 const SearchBar = styled.div`
-    text-align: right;
+    text-align: center;
     margin: 3vh 0 3vh 0;
     .ui.input {
-        width: 30vw;
+        width: 35vw;
     }
 `
 
@@ -69,7 +69,7 @@ class BeerSearch extends Component {
                     <Card.Content extra>
                         <div className='ui two buttons'>
                             <Button basic color='green' onClick={() => this.handleSubmit(result.id)}>
-                                Add to List
+                                Tried it!
                             </Button>
                         </div>
                     </Card.Content>

@@ -40,11 +40,11 @@ class Navbar extends Component {
                     <Menu.Item name='home' as={Link} to='/home' active={activeItem === 'home'} onClick={this.handleItemClick}>
                         Home
                     </Menu.Item>
-                    <Menu.Item name='beers' as={Link} to='/beers' active={activeItem === 'beers'} onClick={this.handleItemClick}>
-                        Find a Beer
-                    </Menu.Item>
                     < Menu.Item name='favorites' as={Link} to='/favorites' active={activeItem === 'favorites'} onClick={this.handleItemClick}>
                         Favorites
+                    </Menu.Item>
+                    <Menu.Item name='beers' as={Link} to='/beers' active={activeItem === 'beers'} onClick={this.handleItemClick}>
+                        Find a Beer
                     </Menu.Item>
                     <Menu.Menu position='right'>
                     < Menu.Item name='signout' onClick={this.signOut}>

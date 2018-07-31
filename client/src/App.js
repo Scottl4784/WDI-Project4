@@ -9,7 +9,6 @@ import BeerSearch from './components/BeerSearch';
 
 const Container = styled.div`
     width: 80%;
-    height: 150%;
     position: absolute;
     background-size: cover;
     margin: 0 10%;
