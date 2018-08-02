@@ -17,7 +17,7 @@ With so many craft beers out there now, it is hard to keep track of all the ones
    * ERD - https://www.figma.com/file/ICRLVVa1pXxjl5Ir2FQ4fDRy/Project-4---ERD
    * Heroku - https://wdi-movie-board.herokuapp.com/5b3a1ecd601e690014a54cba/movies
    * Trello - https://trello.com/b/fpkTyH8Q/wdi16-project-4
-   * GitHub - https://github.com/Scottl4784/WDI16-Project3
+   * GitHub - https://github.com/Scottl4784/WDI-Project4
         
         
    ## Future Development
