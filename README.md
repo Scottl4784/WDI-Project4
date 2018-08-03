@@ -22,4 +22,4 @@ With so many craft beers out there now, it is hard to keep track of all the ones
         
    ## Future Development
    * improve styling and format.
-   * Add a settiings page for users.
+   * Add locations of breweries.
