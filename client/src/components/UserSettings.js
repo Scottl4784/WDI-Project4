@@ -39,7 +39,7 @@ class UserSettings extends Component {
                 name: this.state.name,
             }
             setAxiosDefaults()
-            const response = await axios.put('/api/users/user', payload)     
+            await axios.put('/api/users/user', payload)     
         }
          catch (error) {
             console.log(error)
